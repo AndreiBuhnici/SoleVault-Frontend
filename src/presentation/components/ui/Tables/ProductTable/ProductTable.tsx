@@ -8,6 +8,8 @@ import { useClientProductTableController, usePersonnelProductTableController } f
 import { ProductAddDialog } from "../../Dialogs/ProductAddDialog";
 import { ProductUpdateDialog } from "../../Dialogs/ProductUpdateDialog";
 import { useOwnUserHasRole } from "@infrastructure/hooks/useOwnUser";
+import { useCartTableController } from "../CartTable/CartTable.controller";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const useHeader = (): { key: keyof ProductDTO, name: string }[] => {
     const { formatMessage } = useIntl();
@@ -109,6 +111,7 @@ export const ProductTable = () => {
              </DataLoadingContainer>
     } else {
         const { handleChangePage, handleChangePageSize, pagedData, isError, isLoading, tryReload, labelDisplay, handleSearch } = useClientProductTableController();
+        const { add } = useCartTableController();
         const rowValues = getRowValues(pagedData?.data, orderMap);
 
         return <DataLoadingContainer isError={isError} isLoading={isLoading} tryReload={tryReload}>
@@ -140,6 +143,7 @@ export const ProductTable = () => {
                                 {
                                    header.map(e => <TableCell key={`header_${String(e.key)}`}>{e.name}</TableCell>)
                                 }
+                                <TableCell>{formatMessage({ id: "labels.actions" })}</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -161,6 +165,13 @@ export const ProductTable = () => {
                                             </TableCell>
                                         );
                                     })}
+                                    <TableCell>
+                                        <IconButton color="primary" onClick={() => {
+                                            add({ productId: entry.id ?? "", quantity: 1 }, tryReload);
+                                        }}>
+                                            <AddShoppingCartIcon color="primary" fontSize="small" />
+                                        </IconButton>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

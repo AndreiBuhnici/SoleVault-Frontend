@@ -35,5 +35,7 @@
     "globals.category": "Category",
     "globals.owner": "Seller",
     "globals.products": "Products",
-    "globals.imageUrl": "Image URL"
+    "globals.imageUrl": "Image URL",
+    "globals.cart": "Cart",
+    "globals.product": "Product"
 }

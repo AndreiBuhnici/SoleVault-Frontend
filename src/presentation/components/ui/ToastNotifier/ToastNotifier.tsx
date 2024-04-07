@@ -21,21 +21,60 @@ const getTranslationIdForKey = (code?: ErrorCodes) => {
         case ErrorCodes.CannotUpdate:
             return { id: "notifications.errors.cannotUpdate" };
 
+        case ErrorCodes.CartAlreadyExists:
+            return { id: "notifications.errors.cartAlreadyExists" };
+
+        case ErrorCodes.CartItemInAnotherCart:
+            return { id: "notifications.errors.cartItemInAnotherCart" };
+
+        case ErrorCodes.CategoryAlreadyExists:
+            return { id: "notifications.errors.categoryAlreadyExists" };
+
         case ErrorCodes.EntityNotFound:
             return { id: "notifications.errors.entityNotFound" };
 
+        case ErrorCodes.InvalidPrice:
+            return { id: "notifications.errors.invalidPrice" };
+        
+        case ErrorCodes.InvalidQuantity:
+            return { id: "notifications.errors.invalidQuantity" };
+
+        case ErrorCodes.InvalidSearchQuery:
+            return { id: "notifications.errors.invalidSearchQuery" };
+
+        case ErrorCodes.InvalidSize:
+            return { id: "notifications.errors.invalidSize" };
+
+        case ErrorCodes.InvalidStock:
+            return { id: "notifications.errors.invalidStock" };
+
         case ErrorCodes.MailSendFailed:
             return { id: "notifications.errors.mailSendFailed" };
-
+            
+        case ErrorCodes.NotEnoughStock:
+            return { id: "notifications.errors.notEnoughStock" };
+            
+        case ErrorCodes.NotOwner:
+            return { id: "notifications.errors.notOwner" };
+            
         case ErrorCodes.PhysicalFileNotFound:
             return { id: "notifications.errors.physicalFileNotFound" };
 
+        case ErrorCodes.ProductAlreadyExists:
+            return { id: "notifications.errors.productAlreadyExists" };
+            
         case ErrorCodes.TechnicalError:
             return { id: "notifications.errors.technicalError" };
-
+            
+        case ErrorCodes.Unknown:
+            return { id: "notifications.errors.unknown" };
+            
         case ErrorCodes.UserAlreadyExists:
             return { id: "notifications.errors.userAlreadyExists" };
-
+            
+        case ErrorCodes.UserPermission:
+            return { id: "notifications.errors.userPermission" };
+            
         case ErrorCodes.WrongPassword:
             return { id: "notifications.errors.wrongPassword" };
 

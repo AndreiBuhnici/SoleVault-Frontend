@@ -35,5 +35,7 @@
     "globals.category": "Categorie",
     "globals.owner": "Vanzator",
     "globals.products": "Produse",
-    "globals.imageUrl": "URL Imagine"
+    "globals.imageUrl": "URL Imagine",
+    "globals.cart": "Cos",
+    "globals.product": "Produs"
 }

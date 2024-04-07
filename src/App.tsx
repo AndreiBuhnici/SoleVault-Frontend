@@ -8,6 +8,7 @@ import { LoginPage } from "@presentation/pages/LoginPage";
 import { ProductPage } from "@presentation/pages/ProductPage";
 import { RegisterPage } from "@presentation/pages/RegisterPage";
 import { UserFilesPage } from "@presentation/pages/UserFilesPage";
+import { CartPage } from "@presentation/pages/CartPage";
 import { UsersPage } from "@presentation/pages/UsersPage";
 import { Route, Routes } from "react-router-dom";
 import { AppRoute } from "routes";
@@ -25,6 +26,7 @@ export function App() {
         <Route path={AppRoute.Login} element={<LoginPage />} />
         <Route path={AppRoute.Register} element={<RegisterPage />} />
         {(isClient || isPersonnel) && <Route path={AppRoute.Products} element={<ProductPage />} />}
+        {isClient && <Route path={AppRoute.Cart} element={<CartPage />} />}
         {isAdmin && <Route path={AppRoute.Categories} element={<CategoryPage />} />}
         {isAdmin && <Route path={AppRoute.Users} element={<UsersPage />} />} {/* If the user doesn't have the right role this route shouldn't be used. */}
         {/* {isAdmin && <Route path={AppRoute.UserFiles} element={<UserFilesPage />} />} */}

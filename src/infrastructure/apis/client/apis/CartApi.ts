@@ -16,15 +16,21 @@
 import * as runtime from '../runtime';
 import type {
   CartDTORequestResponse,
+  CartInfoDTORequestResponse,
   CartItemAddDTO,
+  CartItemDTOPagedResponseRequestResponse,
   CartItemUpdateDTO,
   RequestResponse,
 } from '../models';
 import {
     CartDTORequestResponseFromJSON,
     CartDTORequestResponseToJSON,
+    CartInfoDTORequestResponseFromJSON,
+    CartInfoDTORequestResponseToJSON,
     CartItemAddDTOFromJSON,
     CartItemAddDTOToJSON,
+    CartItemDTOPagedResponseRequestResponseFromJSON,
+    CartItemDTOPagedResponseRequestResponseToJSON,
     CartItemUpdateDTOFromJSON,
     CartItemUpdateDTOToJSON,
     RequestResponseFromJSON,
@@ -33,6 +39,12 @@ import {
 
 export interface ApiCartAddToCartPostRequest {
     cartItemAddDTO?: CartItemAddDTO;
+}
+
+export interface ApiCartGetCartItemsGetRequest {
+    search?: string;
+    page?: number;
+    pageSize?: number;
 }
 
 export interface ApiCartRemoveFromCartDeleteRequest {
@@ -132,6 +144,74 @@ export class CartApi extends runtime.BaseAPI {
      */
     async apiCartGetCartGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CartDTORequestResponse> {
         const response = await this.apiCartGetCartGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiCartGetCartInfoGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CartInfoDTORequestResponse>> {
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Bearer authentication
+        }
+
+        const response = await this.request({
+            path: `/api/Cart/GetCartInfo`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CartInfoDTORequestResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiCartGetCartInfoGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CartInfoDTORequestResponse> {
+        const response = await this.apiCartGetCartInfoGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiCartGetCartItemsGetRaw(requestParameters: ApiCartGetCartItemsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CartItemDTOPagedResponseRequestResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.search !== undefined) {
+            queryParameters['Search'] = requestParameters.search;
+        }
+
+        if (requestParameters.page !== undefined) {
+            queryParameters['Page'] = requestParameters.page;
+        }
+
+        if (requestParameters.pageSize !== undefined) {
+            queryParameters['PageSize'] = requestParameters.pageSize;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Bearer authentication
+        }
+
+        const response = await this.request({
+            path: `/api/Cart/GetCartItems`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => CartItemDTOPagedResponseRequestResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiCartGetCartItemsGet(requestParameters: ApiCartGetCartItemsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CartItemDTOPagedResponseRequestResponse> {
+        const response = await this.apiCartGetCartItemsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

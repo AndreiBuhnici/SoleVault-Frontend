@@ -3,6 +3,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useCallback, useState } from "react";
 import { usePaginationController } from "../Pagination.controller";
 import { useTableController } from "../Table.controller";
+import { toast } from "react-toastify";
+import { useIntl } from "react-intl";
 
 export const useClientProductTableController = () => {
     const { getProducts: { key: queryKey, query } } = useProductApi();
@@ -36,6 +38,7 @@ export const useClientProductTableController = () => {
 };
 
 export const usePersonnelProductTableController = () => {
+    const { formatMessage } = useIntl();
     const { getProductsbyOwnerId: { key: queryKey, query }, deleteProduct: { key: deleteProductKey, mutation: deleteProduct } } = useProductApi();
     const queryClient = useQueryClient();
     const { page, pageSize, setPagination } = usePaginationController();
@@ -50,8 +53,10 @@ export const usePersonnelProductTableController = () => {
     });
 
     const remove = useCallback(
-        (id: string) => deleteMutation(id).then(() => queryClient.invalidateQueries({ queryKey: [queryKey] })),
-        [queryClient, deleteMutation, queryKey]);
+        (id: string) => deleteMutation(id).then(() => { 
+            queryClient.invalidateQueries({ queryKey: [queryKey] });
+            toast(formatMessage({ id: "notifications.messages.deleteProductSuccess" }));
+        }),[queryClient, deleteMutation, queryKey]);
 
     const tryReload = useCallback(
         () => queryClient.invalidateQueries({ queryKey: [queryKey] }),

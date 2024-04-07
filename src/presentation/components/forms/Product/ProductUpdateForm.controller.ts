@@ -7,6 +7,8 @@ import { useProductApi } from "@infrastructure/apis/api-management/product";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { useIntl } from "react-intl";
+import { toast } from "react-toastify";
 
 const getDefaultValues = (initialData?: ProductUpdateFormModel) => {
     const defaultValues: ProductUpdateFormModel = {
@@ -46,6 +48,7 @@ const useInitiProductUpdateForm = () => {
 };
 
 export const useProductUpdateFormController = (entry: ProductDTO, onSubmit?: () => void): ProductUpdateFormController => {
+    const { formatMessage } = useIntl();
     const { defaultValues, resolver } = useInitiProductUpdateForm();
     const { updateProduct: { mutation, key: mutationKey }, getProducts: { key: queryKey } } = useProductApi();
     const { mutateAsync: update, status } = useMutation({
@@ -63,6 +66,7 @@ export const useProductUpdateFormController = (entry: ProductDTO, onSubmit?: () 
         };
         update(updatedData).then(() => {
             queryClient.invalidateQueries({ queryKey: [queryKey] });
+            toast(formatMessage({ id: "notifications.messages.updateProductSuccess" }));
 
             if (onSubmit) {
                 onSubmit();

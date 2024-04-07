@@ -6,7 +6,7 @@ import { Fragment, memo } from "react";
 
 export const RegisterPage = memo(() => {
     return <Fragment>
-        <Seo title="MobyLab Web App | Register" />
+        <Seo title="Register" />
         <WebsiteLayout>
             <Box sx={{ padding: "0px 50px 0px 50px", justifyItems: "center" }}>
                 <RegisterForm />

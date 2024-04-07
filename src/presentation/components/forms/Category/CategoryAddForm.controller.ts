@@ -7,6 +7,7 @@ import { useCategoryApi } from "@infrastructure/apis/api-management/category";
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const getDefaultValues = (initialData?: CategoryAddFormModel) => {
     const defaultValues: CategoryAddFormModel = {
@@ -55,6 +56,7 @@ const useInitCategoryAddForm = () => {
 };
 
 export const useCategoryAddFormController = (onSubmit?: () => void): CategoryAddFormController => {
+    const { formatMessage } = useIntl();
     const { defaultValues, resolver } = useInitCategoryAddForm();
     const { createCategory: { mutation, key: mutationKey }, getCategories: { key: queryKey } } = useCategoryApi();
     const { mutateAsync: add, status } = useMutation({
@@ -65,6 +67,7 @@ export const useCategoryAddFormController = (onSubmit?: () => void): CategoryAdd
     const submit = useCallback((data: CategoryAddFormModel) =>
         add(data).then(() => {
             queryClient.invalidateQueries({ queryKey: [queryKey] });
+            toast(formatMessage({ id: "notifications.messages.addCategorySuccess" }));
 
             if (onSubmit) {
                 onSubmit();

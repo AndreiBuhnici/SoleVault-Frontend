@@ -3,8 +3,11 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { usePaginationController } from "../Pagination.controller";
 import { useCallback, useState } from "react";
 import { useTableController } from "../Table.controller";
+import { useIntl } from "react-intl";
+import { toast } from "react-toastify";
 
 export const useCategoryTableController = () => {
+    const { formatMessage } = useIntl();
     const { getCategories: { key: queryKey, query }, deleteCategory: { key: deleteCategoryKey, mutation: deleteCategory } } = useCategoryApi(); 
     const queryClient = useQueryClient();
     const { page, pageSize, setPagination } = usePaginationController();
@@ -19,8 +22,10 @@ export const useCategoryTableController = () => {
     });
 
     const remove = useCallback(
-        (id: string) => deleteMutation(id).then(() => queryClient.invalidateQueries({ queryKey: [queryKey] })),
-        [queryClient, deleteMutation, queryKey]);
+        (id: string) => deleteMutation(id).then(() => {
+            queryClient.invalidateQueries({ queryKey: [queryKey] });
+            toast(formatMessage({ id: "notifications.messages.deleteCategorySuccess" }));
+        }),[queryClient, deleteMutation, queryKey]);
 
     const tryReload = useCallback(
         () => queryClient.invalidateQueries({ queryKey: [queryKey] }),

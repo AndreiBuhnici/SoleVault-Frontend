@@ -12,7 +12,7 @@ import { Grid } from '@mui/material';
 import { resetProfile } from '@application/state-slices';
 import { useAppRouter } from '@infrastructure/hooks/useAppRouter';
 import { NavbarLanguageSelector } from '@presentation/components/ui/NavbarLanguageSelector/NavbarLanguageSelector';
-import { useOwnUserHasRole } from '@infrastructure/hooks/useOwnUser';
+import { useOwnUser, useOwnUserHasRole } from '@infrastructure/hooks/useOwnUser';
 import { UserRoleEnum } from '@infrastructure/apis/client';
 
 /**
@@ -21,6 +21,7 @@ import { UserRoleEnum } from '@infrastructure/apis/client';
 export const Navbar = () => {
   const { formatMessage } = useIntl();
   const { loggedIn } = useAppSelector(x => x.profileReducer);
+  const user = useOwnUser();
   const isAdmin = useOwnUserHasRole(UserRoleEnum.Admin);
   const isPersonnel = useOwnUserHasRole(UserRoleEnum.Personnel);
   const isClient = useOwnUserHasRole(UserRoleEnum.Client);
@@ -43,13 +44,13 @@ export const Navbar = () => {
           wrap="nowrap"
           columnSpacing={2}
         >
-          <Grid container item direction="column" xs={1}>
+          <Grid container item direction="column" xs={1.4}>
             <Link
               to={AppRoute.Index}> {/* Add a button to redirect to the home page. */}
               <HomeIcon style={{ color: 'white' }} fontSize='large' />
             </Link>
           </Grid>
-          <Grid container item direction="column" xs={8}>
+          <Grid container item direction="column" xs={1}>
             {(isPersonnel || isClient) && <Grid // If the user is logged in and it is personnel they can have new menu items shown.
                 container
                 item
@@ -100,9 +101,28 @@ export const Navbar = () => {
             </Grid>}
           </Grid>
           <Grid container item direction="column" xs={1}>
+          {isClient && <Grid // If the user is logged in and it is a client they can have new menu items shown.
+              container
+              item
+              direction="row"
+              xs={12}
+              alignItems="center"
+              wrap="nowrap"
+              columnSpacing={15}
+            >
+              <Grid container item direction="column" xs={1}>
+                <Button color="inherit">
+                  <Link style={{ color: 'white' }} to={AppRoute.Cart}>
+                    {formatMessage({ id: "globals.cart" })}
+                  </Link>
+                </Button>
+              </Grid>
+            </Grid>}
+          </Grid>
+          <Grid container item direction="column" xs={0}>
             <NavbarLanguageSelector />
           </Grid>
-          <Grid container item direction="column" xs={2}>
+          <Grid container item direction="column" xs={1}>
             {!loggedIn && <Button color="inherit">  {/* If the user is not logged in show a button that redirects to the login page. */}
               <Link style={{ color: 'white' }} to={AppRoute.Login}>
                 {formatMessage({ id: "globals.login" })}
@@ -113,6 +133,13 @@ export const Navbar = () => {
                 {formatMessage({ id: "globals.register" })}
               </Link>
             </Button>}
+            {loggedIn && (
+              <Grid container item direction="column" xs={1}>
+                  <span style={{ color: 'white', textAlign: 'center' }}>
+                    {user?.name}
+                  </span>
+              </Grid>
+            )}
             {loggedIn && <Button onClick={logout} color="inherit" > {/* Otherwise show the logout button. */}
               {formatMessage({ id: "globals.logout" })}
             </Button>}
