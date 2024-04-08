@@ -37,7 +37,7 @@ export const useCartApi = () => {
         },
         clearCart: {
             key: clearCartQueryKey,
-            query: clearCart
+            mutation: clearCart
         },
         addToCart: {
             key: addToCartQueryKey,

@@ -34,5 +34,7 @@
     "notifications.errors.unknown": "An unknown error occurred!",
     "notifications.errors.userPermission": "You don't have permission to perform this action!",
     "notifications.messages.addToCartSuccess": "The product was added to the cart successfully!",
-    "notifications.messages.removeFromCartSuccess": "The product was removed from the cart successfully!"
+    "notifications.messages.removeFromCartSuccess": "The product was removed from the cart successfully!",
+    "notifications.messages.clearCartSuccess": "The cart was cleared successfully!",
+    "notifications.messages.updateCartItemSuccess": "The cart item was updated successfully!"
 }

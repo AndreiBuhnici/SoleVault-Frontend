@@ -33,5 +33,7 @@
     "notifications.errors.unknown": "Eroare necunoscută!",
     "notifications.errors.userPermission": "Permisiunea utilizatorului este invalidă!",
     "notifications.messages.addToCartSuccess": "Produsul a fost adăugat în coș cu succes!",
-    "notifications.messages.removeFromCartSuccess": "Produsul a fost eliminat din coș cu succes!"
+    "notifications.messages.removeFromCartSuccess": "Produsul a fost eliminat din coș cu succes!",
+    "notifications.messages.clearCartSuccess": "Coșul a fost golit cu succes!",
+    "notifications.messages.updateCartItemSuccess": "Produsul din coș a fost actualizat cu succes!"
 }
