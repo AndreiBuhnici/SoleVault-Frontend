@@ -78,6 +78,12 @@ const getTranslationIdForKey = (code?: ErrorCodes) => {
         case ErrorCodes.WrongPassword:
             return { id: "notifications.errors.wrongPassword" };
 
+        case ErrorCodes.InvalidPhoneNumber:
+            return { id: "notifications.errors.invalidPhoneNumber" };
+
+        case ErrorCodes.CartEmpty:
+            return { id: "notifications.errors.cartEmpty" };
+
         default:
             return { id: "notifications.errors.unknownHappened" };
     }
@@ -122,7 +128,7 @@ export const ToastNotifier = () => {
     });
 
     return <ToastContainer // Create the toast container to enable the notification visualization.
-        position="top-left"
+        position="bottom-left"
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}

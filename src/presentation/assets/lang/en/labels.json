@@ -11,5 +11,6 @@
     "labels.updateCategory": "Update category",
     "labels.search": "Search",
     "labels.addProduct": "Add product",
-    "labels.updateProduct": "Update product"
+    "labels.updateProduct": "Update product",
+    "labels.createOrder": "Create order"
 }

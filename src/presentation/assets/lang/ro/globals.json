@@ -37,5 +37,14 @@
     "globals.products": "Produse",
     "globals.imageUrl": "URL Imagine",
     "globals.cart": "Cos",
-    "globals.product": "Produs"
+    "globals.product": "Produs",
+    "globals.id": "ID",
+    "globals.orderDate": "Data Comenzii",
+    "globals.deliveryDate": "Data Livrarii",
+    "globals.phoneNumber": "Numar de Telefon",
+    "globals.shippingAddress": "Adresa de Livrare",
+    "globals.status": "Status",
+    "globals.totalPrice": "Pret Total",
+    "globals.orders": "Comenzi",
+    "globals.orderItems": "Produse Comandate"
 }

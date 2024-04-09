@@ -39,7 +39,9 @@ export const ErrorCodes = {
     UserPermission: 'UserPermission',
     InvalidStock: 'InvalidStock',
     InvalidPrice: 'InvalidPrice',
-    InvalidSize: 'InvalidSize'
+    InvalidSize: 'InvalidSize',
+    InvalidPhoneNumber: 'InvalidPhoneNumber',
+    CartEmpty: 'CartEmpty'
 } as const;
 export type ErrorCodes = typeof ErrorCodes[keyof typeof ErrorCodes];
 

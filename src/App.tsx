@@ -7,11 +7,11 @@ import { HomePage } from "@presentation/pages/HomePage";
 import { LoginPage } from "@presentation/pages/LoginPage";
 import { ProductPage } from "@presentation/pages/ProductPage";
 import { RegisterPage } from "@presentation/pages/RegisterPage";
-import { UserFilesPage } from "@presentation/pages/UserFilesPage";
 import { CartPage } from "@presentation/pages/CartPage";
 import { UsersPage } from "@presentation/pages/UsersPage";
 import { Route, Routes } from "react-router-dom";
 import { AppRoute } from "routes";
+import { OrderPage } from "@presentation/pages/OrderPage";
 
 export function App() {
   const isAdmin = useOwnUserHasRole(UserRoleEnum.Admin);
@@ -27,9 +27,9 @@ export function App() {
         <Route path={AppRoute.Register} element={<RegisterPage />} />
         {(isClient || isPersonnel) && <Route path={AppRoute.Products} element={<ProductPage />} />}
         {isClient && <Route path={AppRoute.Cart} element={<CartPage />} />}
+        {isClient && <Route path={AppRoute.Orders} element={<OrderPage />} />}
         {isAdmin && <Route path={AppRoute.Categories} element={<CategoryPage />} />}
-        {isAdmin && <Route path={AppRoute.Users} element={<UsersPage />} />} {/* If the user doesn't have the right role this route shouldn't be used. */}
-        {/* {isAdmin && <Route path={AppRoute.UserFiles} element={<UserFilesPage />} />} */}
+        {isAdmin && <Route path={AppRoute.Users} element={<UsersPage />} />}
       </Routes>
     </AppIntlProvider>
 }

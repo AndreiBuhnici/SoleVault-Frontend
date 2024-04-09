@@ -11,5 +11,6 @@
     "labels.updateCategory": "Actualizeaza categorie",
     "labels.search": "Cauta",
     "labels.addProduct": "Adauga produs",
-    "labels.updateProduct": "Actualizeaza produs"
+    "labels.updateProduct": "Actualizeaza produs",
+    "labels.createOrder": "Creeaza comanda"
 }

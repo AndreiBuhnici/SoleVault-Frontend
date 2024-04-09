@@ -39,26 +39,26 @@ export const Navbar = () => {
           container
           item
           direction="row"
-          xs={12}
+          xs={20}
           alignItems="center"
           wrap="nowrap"
-          columnSpacing={2}
+          columnSpacing={1}
         >
-          <Grid container item direction="column" xs={1.4}>
+          <Grid container item direction="column" xs={10}>
             <Link
               to={AppRoute.Index}> {/* Add a button to redirect to the home page. */}
               <HomeIcon style={{ color: 'white' }} fontSize='large' />
             </Link>
           </Grid>
-          <Grid container item direction="column" xs={1}>
-            {(isPersonnel || isClient) && <Grid // If the user is logged in and it is personnel they can have new menu items shown.
+          <Grid container item direction="column" xs={200}>
+            {isPersonnel && <Grid // If the user is logged in and it is personnel they can have new menu items shown.
                 container
                 item
                 direction="row"
                 xs={12}
                 alignItems="center"
                 wrap="nowrap"
-                columnSpacing={15}
+                columnSpacing={1}
               >
                 <Grid container item direction="column" xs={1}>
                   <Button color="inherit">
@@ -67,7 +67,40 @@ export const Navbar = () => {
                     </Link>
                   </Button>
                 </Grid>
-              </Grid>}
+              </Grid>
+            }
+            {isClient && <Grid // If the user is logged in and it is personnel they can have new menu items shown.
+                container
+                item
+                direction="row"
+                xs={12}
+                alignItems="center"
+                wrap="nowrap"
+                columnSpacing={1}
+              >
+                <Grid container item direction="column" xs={1}>
+                  <Button color="inherit">
+                    <Link style={{ color: 'white' }} to={AppRoute.Products}>
+                      {formatMessage({ id: "globals.products" })}
+                    </Link>
+                  </Button>
+                </Grid>
+                <Grid container item direction="column" xs={1}>
+                <Button color="inherit">
+                  <Link style={{ color: 'white' }} to={AppRoute.Cart}>
+                    {formatMessage({ id: "globals.cart" })}
+                  </Link>
+                </Button>
+                </Grid>
+                <Grid container item direction="column" xs={1}>
+                <Button color="inherit">
+                  <Link style={{ color: 'white' }} to={AppRoute.Orders}>
+                    {formatMessage({ id: "globals.orders" })}
+                  </Link>
+                </Button>
+                </Grid>
+              </Grid>
+            }
             {isAdmin && <Grid // If the user is logged in and it is an admin they can have new menu items shown.
               container
               item
@@ -75,7 +108,7 @@ export const Navbar = () => {
               xs={12}
               alignItems="center"
               wrap="nowrap"
-              columnSpacing={15}
+              columnSpacing={1}
             >
               <Grid container item direction="column" xs={1}>
                 <Button color="inherit">
@@ -86,34 +119,8 @@ export const Navbar = () => {
               </Grid>
               <Grid container item direction="column" xs={1}>
                 <Button color="inherit">
-                  <Link style={{ color: 'white' }} to={AppRoute.UserFiles}>
-                    {formatMessage({ id: "globals.files" })}
-                  </Link>
-                </Button>
-              </Grid>
-              <Grid container item direction="column" xs={1}>
-                <Button color="inherit">
                   <Link style={{ color: 'white' }} to={AppRoute.Categories}>
                     {formatMessage({ id: "globals.categories" })}
-                  </Link>
-                </Button>
-              </Grid>
-            </Grid>}
-          </Grid>
-          <Grid container item direction="column" xs={1}>
-          {isClient && <Grid // If the user is logged in and it is a client they can have new menu items shown.
-              container
-              item
-              direction="row"
-              xs={12}
-              alignItems="center"
-              wrap="nowrap"
-              columnSpacing={15}
-            >
-              <Grid container item direction="column" xs={1}>
-                <Button color="inherit">
-                  <Link style={{ color: 'white' }} to={AppRoute.Cart}>
-                    {formatMessage({ id: "globals.cart" })}
                   </Link>
                 </Button>
               </Grid>

@@ -37,5 +37,14 @@
     "globals.products": "Products",
     "globals.imageUrl": "Image URL",
     "globals.cart": "Cart",
-    "globals.product": "Product"
+    "globals.product": "Product",
+    "globals.id": "ID",
+    "globals.orderDate": "Order Date",
+    "globals.deliveryDate": "Delivery Date",
+    "globals.phoneNumber": "Phone Number",
+    "globals.shippingAddress": "Shipping Address",
+    "globals.status": "Status",
+    "globals.totalPrice": "Total Price",
+    "globals.orders": "Orders",
+    "globals.orderItems": "Order Items"
 }

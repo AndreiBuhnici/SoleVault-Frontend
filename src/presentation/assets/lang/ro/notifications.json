@@ -35,5 +35,8 @@
     "notifications.messages.addToCartSuccess": "Produsul a fost adăugat în coș cu succes!",
     "notifications.messages.removeFromCartSuccess": "Produsul a fost eliminat din coș cu succes!",
     "notifications.messages.clearCartSuccess": "Coșul a fost golit cu succes!",
-    "notifications.messages.updateCartItemSuccess": "Produsul din coș a fost actualizat cu succes!"
+    "notifications.messages.updateCartItemSuccess": "Produsul din coș a fost actualizat cu succes!",
+    "notifications.errors.invalidPhoneNumber": "Numărul de telefon este invalid!",
+    "notifications.messages.createOrderSuccess": "Comanda a fost plasată cu succes!",
+    "notifications.errors.cartEmpty": "Coșul este gol!"
 }

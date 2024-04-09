@@ -36,5 +36,8 @@
     "notifications.messages.addToCartSuccess": "The product was added to the cart successfully!",
     "notifications.messages.removeFromCartSuccess": "The product was removed from the cart successfully!",
     "notifications.messages.clearCartSuccess": "The cart was cleared successfully!",
-    "notifications.messages.updateCartItemSuccess": "The cart item was updated successfully!"
+    "notifications.messages.updateCartItemSuccess": "The cart item was updated successfully!",
+    "notifications.errors.invalidPhoneNumber": "Invalid phone number!",
+    "notifications.messages.createOrderSuccess": "The order was created successfully!",
+    "notifications.errors.cartEmpty": "The cart is empty!"
 }

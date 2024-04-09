@@ -9,5 +9,6 @@ export enum AppRoute {
     UserFiles = "/user-files",
     Categories = "/categories",
     Products = "/products",
-    Cart = "/cart"
+    Cart = "/cart",
+    Orders = "/orders"
 }

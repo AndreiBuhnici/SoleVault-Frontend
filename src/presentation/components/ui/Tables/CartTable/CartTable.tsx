@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { OrderCreateDialog } from '../../Dialogs/OrderCreateDialog/OrderCreateDialog';
 
 const useHeader = (): { key: keyof CartItemDTO, name: string }[] => {
     const { formatMessage } = useIntl();
@@ -37,6 +38,7 @@ export const CartTable = () => {
 
     return <DataLoadingContainer isError={isError && infoError} isLoading={isLoading && infoLoading} tryReload={tryReload}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
+            <OrderCreateDialog />
             <TextField
                 label={formatMessage({ id: "labels.search" })}
                 variant="outlined"
@@ -94,15 +96,15 @@ export const CartTable = () => {
                                 );
                             })}
                             <TableCell> {/* Add other cells like action buttons. */}
-                                {<IconButton color="error" onClick={() => remove(entry.id ?? '')}>
-                                    <DeleteIcon color="error" fontSize='small' />
-                                </IconButton>}
-                                {<IconButton color="primary" onClick={() => update({ id: entry.id ?? '', quantity: (entry.quantity ?? 0) + 1 })}>
+                                <IconButton color="primary" onClick={() => update({ id: entry.id ?? '', quantity: (entry.quantity ?? 0) + 1 })}>
                                     <AddIcon color="primary" fontSize='small' />
-                                </IconButton>}
-                                {<IconButton color="primary" onClick={() => update({ id: entry.id ?? '', quantity: (entry.quantity ?? 0) - 1 })}>
+                                </IconButton>
+                                <IconButton color="primary" onClick={() => update({ id: entry.id ?? '', quantity: (entry.quantity ?? 0) - 1 })}>
                                     <RemoveIcon color="primary" fontSize='small' />
-                                </IconButton>}
+                                </IconButton>
+                                <IconButton color="error" onClick={() => remove(entry.id ?? '')}>
+                                    <DeleteIcon color="error" fontSize='small' />
+                                </IconButton>
                             </TableCell>
                         </TableRow>
                     ))}
