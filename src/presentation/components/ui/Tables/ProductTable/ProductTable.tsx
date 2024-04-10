@@ -86,7 +86,7 @@ export const ProductTable = () => {
                                         if (keyValue.key === "category" || keyValue.key === "owner") {
                                             cellContent = keyValue.value.name;
                                         } else if (keyValue.key === "imageUrl") {
-                                            cellContent = <img src={keyValue.value} alt="" width="240" height="120" />;
+                                            cellContent = <img src={keyValue.value} alt="" width="120" height="120" />;
                                         } else {
                                             cellContent = keyValue.value;
                                         }
@@ -154,7 +154,7 @@ export const ProductTable = () => {
                                         if (keyValue.key === "category" || keyValue.key === "owner") {
                                             cellContent = keyValue.value.name;
                                         } else if (keyValue.key === "imageUrl") {
-                                            cellContent = <img src={keyValue.value} alt="" width="240" height="120" />;
+                                            cellContent = <img src={keyValue.value} alt="" width="120" height="120" />;
                                         } else {
                                             cellContent = keyValue.value;
                                         }
