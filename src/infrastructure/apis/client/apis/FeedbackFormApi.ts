@@ -16,12 +16,15 @@
 import * as runtime from '../runtime';
 import type {
   FeedBackFormAddDTO,
+  FeedbackFormDTOPagedResponseRequestResponse,
   FeedbackFormDTORequestResponse,
   RequestResponse,
 } from '../models';
 import {
     FeedBackFormAddDTOFromJSON,
     FeedBackFormAddDTOToJSON,
+    FeedbackFormDTOPagedResponseRequestResponseFromJSON,
+    FeedbackFormDTOPagedResponseRequestResponseToJSON,
     FeedbackFormDTORequestResponseFromJSON,
     FeedbackFormDTORequestResponseToJSON,
     RequestResponseFromJSON,
@@ -30,6 +33,12 @@ import {
 
 export interface ApiFeedbackFormAddFeedbackFormPostRequest {
     feedBackFormAddDTO?: FeedBackFormAddDTO;
+}
+
+export interface ApiFeedbackFormGetFeedbackFormsGetRequest {
+    search?: string;
+    page?: number;
+    pageSize?: number;
 }
 
 /**
@@ -93,6 +102,46 @@ export class FeedbackFormApi extends runtime.BaseAPI {
      */
     async apiFeedbackFormGetFeedbackFormGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FeedbackFormDTORequestResponse> {
         const response = await this.apiFeedbackFormGetFeedbackFormGetRaw(initOverrides);
+        return await response.value();
+    }
+
+    /**
+     */
+    async apiFeedbackFormGetFeedbackFormsGetRaw(requestParameters: ApiFeedbackFormGetFeedbackFormsGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FeedbackFormDTOPagedResponseRequestResponse>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.search !== undefined) {
+            queryParameters['Search'] = requestParameters.search;
+        }
+
+        if (requestParameters.page !== undefined) {
+            queryParameters['Page'] = requestParameters.page;
+        }
+
+        if (requestParameters.pageSize !== undefined) {
+            queryParameters['PageSize'] = requestParameters.pageSize;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Bearer authentication
+        }
+
+        const response = await this.request({
+            path: `/api/FeedbackForm/GetFeedbackForms`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => FeedbackFormDTOPagedResponseRequestResponseFromJSON(jsonValue));
+    }
+
+    /**
+     */
+    async apiFeedbackFormGetFeedbackFormsGet(requestParameters: ApiFeedbackFormGetFeedbackFormsGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FeedbackFormDTOPagedResponseRequestResponse> {
+        const response = await this.apiFeedbackFormGetFeedbackFormsGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

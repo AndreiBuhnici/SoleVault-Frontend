@@ -39,5 +39,7 @@
     "notifications.messages.updateCartItemSuccess": "The cart item was updated successfully!",
     "notifications.errors.invalidPhoneNumber": "Invalid phone number!",
     "notifications.messages.createOrderSuccess": "The order was created successfully!",
-    "notifications.errors.cartEmpty": "The cart is empty!"
+    "notifications.errors.cartEmpty": "The cart is empty!",
+    "notifications.messages.addFeedbackFormSuccess": "The feedback form was added successfully!",
+    "notifications.errors.feedbackFormAlreadyExists": "The feedback form already exists!"
 }

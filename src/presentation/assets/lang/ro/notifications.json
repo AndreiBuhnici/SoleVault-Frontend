@@ -38,5 +38,7 @@
     "notifications.messages.updateCartItemSuccess": "Produsul din coș a fost actualizat cu succes!",
     "notifications.errors.invalidPhoneNumber": "Numărul de telefon este invalid!",
     "notifications.messages.createOrderSuccess": "Comanda a fost plasată cu succes!",
-    "notifications.errors.cartEmpty": "Coșul este gol!"
+    "notifications.errors.cartEmpty": "Coșul este gol!",
+    "notifications.messages.addFeedbackFormSuccess": "Formularul de feedback a fost adăugat cu succes!",
+    "notifications.errors.feedbackFormAlreadyExists": "Formularul de feedback există deja!"
 }

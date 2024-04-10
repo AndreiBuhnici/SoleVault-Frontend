@@ -27,6 +27,8 @@ models/ErrorCodes.ts
 models/ErrorMessage.ts
 models/FeedBackFormAddDTO.ts
 models/FeedbackFormDTO.ts
+models/FeedbackFormDTOPagedResponse.ts
+models/FeedbackFormDTOPagedResponseRequestResponse.ts
 models/FeedbackFormDTORequestResponse.ts
 models/HttpStatusCode.ts
 models/LoginDTO.ts

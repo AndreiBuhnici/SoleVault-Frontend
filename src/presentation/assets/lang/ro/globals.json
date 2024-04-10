@@ -46,5 +46,13 @@
     "globals.status": "Status",
     "globals.totalPrice": "Pret Total",
     "globals.orders": "Comenzi",
-    "globals.orderItems": "Produse Comandate"
+    "globals.orderItems": "Produse Comandate",
+    "globals.feedbackForm": "Formular Feedback",
+    "globals.feedback": "Feedback",
+    "globals.overallRating": "Rating General",
+    "globals.deliveryRating": "Rating Livrare",
+    "globals.favoriteFeatures": "Caracteristici Preferate",
+    "globals.validations.minValue": "{fieldName} trebuie sa fie mai mare sau egal cu {value}",
+    "globals.validations.maxValue": "{fieldName} trebuie sa fie mai mic sau egal cu {value}",
+    "globals.userFeedbackForms": "Feedback Utilizatori"
 }

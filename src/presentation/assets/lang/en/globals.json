@@ -46,5 +46,13 @@
     "globals.status": "Status",
     "globals.totalPrice": "Total Price",
     "globals.orders": "Orders",
-    "globals.orderItems": "Order Items"
+    "globals.orderItems": "Order Items",
+    "globals.feedbackForm": "Feedback Form",
+    "globals.feedback": "Feedback",
+    "globals.overallRating": "Overall Rating",
+    "globals.deliveryRating": "Delivery Rating",
+    "globals.favoriteFeatures": "Favorite Features",
+    "globals.validations.minValue": "{fieldName} must be at least {minValue}!",
+    "globals.validations.maxValue": "{fieldName} must be at most {maxValue}!",
+    "globals.userFeedbackForms": "User Feedback"
 }

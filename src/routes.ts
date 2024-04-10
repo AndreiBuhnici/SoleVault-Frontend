@@ -10,5 +10,6 @@ export enum AppRoute {
     Categories = "/categories",
     Products = "/products",
     Cart = "/cart",
-    Orders = "/orders"
+    Orders = "/orders",
+    Feedback = "/feedback",
 }

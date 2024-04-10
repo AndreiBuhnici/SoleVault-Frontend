@@ -99,6 +99,13 @@ export const Navbar = () => {
                   </Link>
                 </Button>
                 </Grid>
+                <Grid container item direction="column" xs={1}>
+                <Button color="inherit">
+                  <Link style={{ color: 'white' }} to={AppRoute.Feedback}>
+                    {formatMessage({ id: "globals.feedbackForm" })}
+                  </Link>
+                </Button>
+                </Grid>
               </Grid>
             }
             {isAdmin && <Grid // If the user is logged in and it is an admin they can have new menu items shown.
@@ -124,6 +131,13 @@ export const Navbar = () => {
                   </Link>
                 </Button>
               </Grid>
+              <Grid container item direction="column" xs={1}>
+                <Button color="inherit">
+                  <Link style={{ color: 'white' }} to={AppRoute.Feedback}>
+                    {formatMessage({ id: "globals.userFeedbackForms" })}
+                  </Link>
+                </Button>
+                </Grid>
             </Grid>}
           </Grid>
           <Grid container item direction="column" xs={0}>

@@ -41,7 +41,8 @@ export const ErrorCodes = {
     InvalidPrice: 'InvalidPrice',
     InvalidSize: 'InvalidSize',
     InvalidPhoneNumber: 'InvalidPhoneNumber',
-    CartEmpty: 'CartEmpty'
+    CartEmpty: 'CartEmpty',
+    FeedbackFormAlreadyExists: 'FeedbackFormAlreadyExists'
 } as const;
 export type ErrorCodes = typeof ErrorCodes[keyof typeof ErrorCodes];
 

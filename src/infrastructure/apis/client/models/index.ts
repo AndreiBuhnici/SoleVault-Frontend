@@ -19,6 +19,8 @@ export * from './ErrorCodes';
 export * from './ErrorMessage';
 export * from './FeedBackFormAddDTO';
 export * from './FeedbackFormDTO';
+export * from './FeedbackFormDTOPagedResponse';
+export * from './FeedbackFormDTOPagedResponseRequestResponse';
 export * from './FeedbackFormDTORequestResponse';
 export * from './HttpStatusCode';
 export * from './LoginDTO';

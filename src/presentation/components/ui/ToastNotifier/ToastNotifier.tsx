@@ -84,6 +84,9 @@ const getTranslationIdForKey = (code?: ErrorCodes) => {
         case ErrorCodes.CartEmpty:
             return { id: "notifications.errors.cartEmpty" };
 
+        case ErrorCodes.FeedbackFormAlreadyExists:
+            return { id: "notifications.errors.feedbackFormAlreadyExists" };
+
         default:
             return { id: "notifications.errors.unknownHappened" };
     }
